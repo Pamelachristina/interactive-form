@@ -4,8 +4,10 @@ const nameText = document.getElementById('name');
 const emailText = document.getElementById('mail');
 const jobRole = document.getElementById('title');
 const otherJobRole = document.getElementById('other-job-role');
-
-
+const tshirtDesign = document.getElementById('design');
+const tshirtColor = document.getElementById('color');
+const options = document.querySelectorAll('#color option');
+const selectDesign = document.getElementById('shirt-designs');
 
 
 
@@ -25,3 +27,17 @@ let showOtherJob = function () {
 };
 
 jobRole.addEventListener('change', showOtherJob);
+
+
+////////////T-shirt info section/////////////////////
+document.getElementById('color').disabled = true;
+
+
+tshirtDesign.addEventListener('change', () => {
+    document.getElementById('color').disabled = false;
+    let options = document.querySelectorAll('#color data-theme');
+   // loop over option element 
+   for ( let i = 0; i < options.length; i++){
+       return tshirtColor;
+   };
+});
