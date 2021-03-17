@@ -6,8 +6,9 @@ const jobRole = document.getElementById('title');
 const otherJobRole = document.getElementById('other-job-role');
 const tshirtDesign = document.getElementById('design');
 const tshirtColor = document.getElementById('color');
-const options = document.querySelectorAll('#color option');
-const selectDesign = document.getElementById('shirt-designs');
+const tshirtColorOptions = document.getElementById('shirt-colors');
+const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
+const heartJs = document.querySelectorAll('[data-theme="heart js"]');
 
 
 
@@ -33,11 +34,24 @@ jobRole.addEventListener('change', showOtherJob);
 document.getElementById('color').disabled = true;
 
 
-tshirtDesign.addEventListener('change', () => {
+tshirtDesign.addEventListener('change', (e) => {
     document.getElementById('color').disabled = false;
-    let options = document.querySelectorAll('#color data-theme');
-   // loop over option element 
-   for ( let i = 0; i < options.length; i++){
-       return tshirtColor;
-   };
+    if (e.target.value === 'js puns') {
+        // loop over option element 
+        for ( let i = 0; i < jsPuns.length; i++) {
+            tshirtColorOptions.style.display = 'block';
+            jsPuns[i].style.display = 'block';
+            heartJs[i].style.display = 'none';
+        }
+    }else if (e.target.value === 'heart js') {
+        // loop over option element 
+        for ( let i = 0; i < heartJs.length; i++) {
+            tshirtColorOptions.style.display = 'block';
+            jsPuns[i].style.display = 'none';
+            heartJs[i].style.display = 'block';
+        }
+        
+        
+            
+    }
 });
