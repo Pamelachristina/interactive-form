@@ -9,7 +9,8 @@ const tshirtColor = document.getElementById('color');
 const tshirtColorOptions = document.getElementById('shirt-colors');
 const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
 const heartJs = document.querySelectorAll('[data-theme="heart js"]');
-
+const registerActivities = document.getElementById('activities');
+const activitiesCost = document.getElementById('activities-cost');
 
 
 // set focus on first text field when the page loads
@@ -55,3 +56,21 @@ tshirtDesign.addEventListener('change', (e) => {
             
     }
 });
+
+/////////////////Register for Activities section/////////////
+
+let totalCost = 0;
+
+registerActivities.addEventListener('change', (e) => {
+    const choice = e.target;
+    let choiceCost = choice.getAttribute('data-cost');
+    choiceCost = +(choiceCost);
+
+        if (choice.checked){
+            totalCost += choiceCost;
+        }else {
+            totalCost -= choiceCost;
+        }
+        activitiesCost.textContent = `Total: $ ${choiceCost}`;
+});
+
