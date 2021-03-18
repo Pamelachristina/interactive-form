@@ -71,6 +71,6 @@ registerActivities.addEventListener('change', (e) => {
         }else {
             totalCost -= choiceCost;
         }
-        activitiesCost.textContent = `Total: $ ${choiceCost}`;
+        activitiesCost.textContent = `Total: $ ${totalCost}`;
 });
 
