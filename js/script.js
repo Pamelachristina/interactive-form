@@ -11,6 +11,15 @@ const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
 const heartJs = document.querySelectorAll('[data-theme="heart js"]');
 const registerActivities = document.getElementById('activities');
 const activitiesCost = document.getElementById('activities-cost');
+const payment = document.querySelector('#payment');
+const creditCard = document.querySelector('[value="credit-card"]');
+const payPal = document.querySelector('[value="paypal"]');
+const bitCoin = document.querySelector('[value="bitcoin"]');
+const ccBox = document.querySelector('.credit-card-box');
+const ccExpirationBox = document.querySelector('.expiration-box');
+const yearBox = document.querySelector('.year-box');
+const zipBox = document.querySelector('.zip-box');
+const cvvBox = document.querySelector('.cvv-box');
 
 
 // set focus on first text field when the page loads
@@ -74,3 +83,43 @@ registerActivities.addEventListener('change', (e) => {
         activitiesCost.textContent = `Total: $ ${totalCost}`;
 });
 
+
+/////////// Payment info section//////////////////////
+
+//hide paypal and bitcoin initially
+//payPal.style.display = 'none';
+//bitCoin.style.display = 'none';
+
+
+
+// add event listener
+payment.addEventListener('change', (e) => {
+    const choice = e.target.value; 
+    if (choice == 'paypal'){
+        payPal.style.display = 'block';
+        bitCoin.style.display = 'none';
+        ccBox.style.display = 'none';
+        ccExpirationBox.style.display = 'none';
+        yearBox.style.display = 'none';
+        cvvBox.style.display = 'none';
+        zipBox.style.display = 'none';
+
+    }else if (choice == 'credit-card'){
+        ccBox.style.display = 'block';
+        ccExpirationBox.style.display = 'block';
+        yearBox.style.display = 'block';
+        cvvBox.style.display = 'block';
+        zipBox.style.display = 'block';
+        payPal.style.display = 'none';
+        bitCoin.style.display = 'none';
+        
+    }else if (choice == 'bitcoin'){
+        bitCoin.style.display = 'block';
+        ccBox.style.display = 'none';
+        ccExpirationBox.style.display = 'none';
+        payPal.style.display = 'none';
+        yearBox.style.display = 'none';
+        cvvBox.style.display = 'none';
+        zipBox.style.display = 'none';
+    }
+});
