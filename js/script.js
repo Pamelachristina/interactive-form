@@ -120,32 +120,32 @@ payment.addEventListener('change', (e) => {
 ////////////Form Validation//////////////////
 
 ////////////Helper Functions/////////////////
-// regex formula from  www.regex101.com
+// regex to validate name
 function nameVerify (nameText) {
     const nameVal = nameText.getElementsByTagName('INPUT')[0].value;
     const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameVal);
     return nameIsValid;
 };
 
-// regex formula from  www.regex101.com
+// regex to validate email formula from ihateregex.io
 function emailVerify (email) {
     const emailVal = email.getElementsByTagName('INPUT')[1].value;
     const emailIsValid = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/.test(emailVal);
     return emailIsValid;
 };
-// regex formula from  www.regex101.com
+// regex to validate 16 digit number
 function ccNumberVerify (ccBox) {
     const ccNumberVal = ccBox.getElementsByTagName('INPUT')[10].value;
     const ccNumberIsValid  = /^[0-9]{16}(?:-[0-9]{13})?$/.test(ccNumberVal);
     return ccNumberIsValid; 
 };
-// regex formula from  www.regex101.com
+// regex to validate zipcode
 function zipVerify (zipBox) {
     const ccZipVal = zipBox.getElementsByTagName('INPUT')[11].value;
     const ccZipIsValid = /^[0-9]{5}(?:-[0-9]{4})?$/.test(ccZipVal);
     return ccZipIsValid;
 };
-// regex formula from  www.regex101.com
+// regex to validate cvv 
 function cvvVerify(cvvBox) {
     const cvvVal = cvvBox.getElementsByTagName("INPUT")[12].value;
     const cvvIsValid = /^[0-9]{3}$/.test(cvvVal);
