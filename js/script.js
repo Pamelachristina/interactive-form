@@ -152,20 +152,21 @@ function cvvVerify(cvvBox) {
     return cvvIsValid;
   }
   
-  
+ // validation pass check 
 function validationPass(element) {
     element.classList.add("valid");
     element.classList.remove("not-valid");
     element.lastElementChild.style.display = "none";
   }
-  
+ 
+  // validation fail check
 function validationFail(element) {
     element.classList.add("not-valid");
     element.classList.remove("valid");
     element.lastElementChild.style.display = "block";
   }
 
-
+// event listener to handle all click events
 form.addEventListener('submit', (e) => {
     let nameIsValid = nameVerify(e.target);
     const choice1 = document.querySelector('#name');
@@ -190,7 +191,7 @@ form.addEventListener('submit', (e) => {
         validationPass(selectedEmail);
    
     }
-
+// checkbox validator 
   const checkboxes = registerActivities.querySelectorAll('[type="checkbox"]');
   let totalActivitiesChecked = 0;
   const select = document.querySelector("#activities-box");
