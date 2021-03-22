@@ -1,7 +1,6 @@
 'use strict';
 
 const nameText = document.getElementById('name');
-const emailText = document.getElementById('mail');
 const jobRole = document.getElementById('title');
 const otherJobRole = document.getElementById('other-job-role');
 const tshirtDesign = document.getElementById('design');
@@ -17,8 +16,11 @@ const payPal = document.querySelector('.paypal');
 const bitCoin = document.querySelector('.bitcoin');
 const ccExpirationBox = document.querySelector('.expiration-box');
 const yearBox = document.querySelector('.year-box');
-const zipBox = document.querySelector('.zip-box');
-const cvvBox = document.querySelector('.cvv-box');
+const zipBox = document.querySelector('#zip');
+const cvvBox = document.querySelector('#cvv');
+const ccBox = document.querySelector('.cc-num');
+const email = document.querySelector('#email');
+const form = document.querySelector('form');
 
 
 // set focus on first text field when the page loads
@@ -116,4 +118,136 @@ payment.addEventListener('change', (e) => {
 
 
 ////////////Form Validation//////////////////
+
+////////////Helper Functions/////////////////
+// regex formula from  www.regex101.com
+function nameVerify (nameText) {
+    const nameVal = nameText.getElementsByTagName('INPUT')[0].value;
+    const nameIsValid = /^[a-zA-Z]+ ?[a-zA-Z]*? ?[a-zA-Z]*?$/.test(nameVal);
+    return nameIsValid;
+};
+
+// regex formula from  www.regex101.com
+function emailVerify (email) {
+    const emailVal = email.getElementsByTagName('INPUT')[1].value;
+    const emailIsValid = /(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))/.test(emailVal);
+    return emailIsValid;
+};
+// regex formula from  www.regex101.com
+function ccNumberVerify (ccBox) {
+    const ccNumberVal = ccBox.getElementsByTagName('INPUT')[10].value;
+    const ccNumberIsValid  = /(^4[0-9]{12}(?:[0-9]{3})?$)|(^(?:5[1-5][0-9]{2}|222[1-9]|22[3-9][0-9]|2[3-6][0-9]{2}|27[01][0-9]|2720)[0-9]{12}$)|(3[47][0-9]{13})|(^3(?:0[0-5]|[68][0-9])[0-9]{11}$)|(^6(?:011|5[0-9]{2})[0-9]{12}$)|(^(?:2131|1800|35\d{3})\d{11}$)/.test(ccNumberVal);
+    return ccNumberIsValid; 
+};
+// regex formula from  www.regex101.com
+function zipVerify (zipBox) {
+    const ccZipVal = zipBox.getElementsByTagName('INPUT')[11].value;
+    const ccZipIsValid = /^[0-9]{5}(?:-[0-9]{4})?$/.test(ccZipVal);
+    return ccZipIsValid;
+};
+// regex formula from  www.regex101.com
+function cvvVerify(cvvBox) {
+    const cvvVal = cvvBox.getElementsByTagName("INPUT")[12].value;
+    const cvvIsValid = /^[0-9]{3}$/.test(cvvVal);
+    return cvvIsValid;
+  }
+  
+  
+function validationPass(element) {
+    element.classList.add("valid");
+    element.classList.remove("not-valid");
+    element.lastElementChild.style.display = "none";
+  }
+  
+function validationFail(element) {
+    element.classList.add("not-valid");
+    element.classList.remove("valid");
+    element.lastElementChild.style.display = "block";
+  }
+
+
+form.addEventListener('submit', (e) => {
+    let nameIsValid = nameVerify(e.target);
+    const choice1 = document.querySelector('#name');
+    const selectedName = choice1.parentElement;
+    e.preventDefault();
+    if (nameIsValid != true) {
+        validationFail(selectedName);
+        e.preventDefault();
+      } else {
+        validationPass(selectedName);
+   
+    }
+
+    let emailIsValid = emailVerify(e.target);
+    const choice2 = document.querySelector('#email');
+    const selectedEmail = choice2.parentElement;
+    e.preventDefault();
+    if (emailIsValid != true) {
+        validationFail(selectedEmail);
+        e.preventDefault();
+      } else {
+        validationPass(selectedEmail);
+   
+    }
+
+  const checkboxes = registerActivities.querySelectorAll('[type="checkbox"]');
+  let totalActivitiesChecked = 0;
+  const select = document.querySelector("#activities-box");
+  for (let i = 0; i < checkboxes.length; i++) {
+    if (checkboxes[i].checked) {
+      totalActivitiesChecked += 1;}
+      if (totalActivitiesChecked !== 0){
+      select.parentElement.classList.remove("not-valid");
+      select.parentElement.classList.add("valid");
+      select.parentElement.lastElementChild.style.display = "none";
+    } else if (totalActivitiesChecked == 0) {
+      select.parentElement.classList.add("not-valid");
+      select.parentElement.classList.remove("valid");
+      select.parentElement.lastElementChild.style.display = "inline";
+      e.preventDefault();
+    }
+
+    let ccNumberIsValid = ccNumberVerify(e.target);
+    const choice3 = document.querySelector('#cc-num');
+    const selectedCcNum = choice3.parentElement;
+    e.preventDefault();
+    if (ccNumberIsValid != true) {
+        validationFail(selectedCcNum);
+        e.preventDefault();
+      } else {
+        validationPass(selectedCcNum);
+   
+    }
+
+    let ccZipIsValid = zipVerify(e.target);
+    const choice4 = document.querySelector('#zip');
+    const selectedZip= choice4.parentElement;
+    e.preventDefault();
+    if (ccZipIsValid != true) {
+        validationFail(selectedZip);
+        e.preventDefault();
+      } else {
+        validationPass(selectedZip);
+   
+    }
+
+    let ccvIsValid = cvvVerify(e.target);
+    const choice5 = document.querySelector('#cvv');
+    const selectedCvv= choice5.parentElement;
+    e.preventDefault();
+    if (ccvIsValid != true) {
+        validationFail(selectedCvv);
+        e.preventDefault();
+      } else {
+        validationPass(selectedCvv);
+   
+    }
+
+
+
+
+
+
+}});
 
