@@ -54,6 +54,7 @@ tshirtDesign.addEventListener('change', (e) => {
             tshirtColorOptions.style.display = 'block';
             jsPuns[i].style.display = 'block';
             heartJs[i].style.display = 'none';
+            jsPuns[0].selected = true;
         }
     }else if (e.target.value === 'heart js') {
         // loop over option element 
@@ -61,6 +62,7 @@ tshirtDesign.addEventListener('change', (e) => {
             tshirtColorOptions.style.display = 'block';
             jsPuns[i].style.display = 'none';
             heartJs[i].style.display = 'block';
+            heartJs[0].selected = true;
         }
         
         
@@ -107,6 +109,8 @@ for ( let i = 0; i < input.length; i++ ){
 //hide paypal and bitcoin initially
 payPal.style.display = 'none';
 bitCoin.style.display = 'none';
+const ccOption = document.querySelector('#payment [value="credit-card"]');
+ccOption.selected = true;
 
 
 
@@ -124,6 +128,7 @@ payment.addEventListener('change', (e) => {
         creditCard.style.display = 'block';
         payPal.style.display = 'none';
         bitCoin.style.display = 'none';
+        
         
     }else if (choice == 'bitcoin'){
         bitCoin.style.display = 'block';
@@ -188,7 +193,7 @@ form.addEventListener('submit', (e) => {
     let nameIsValid = nameVerify(e.target);
     const choice1 = document.querySelector('#name');
     const selectedName = choice1.parentElement;
-    e.preventDefault();
+  
     if (nameIsValid != true) {
         validationFail(selectedName);
         e.preventDefault();
@@ -200,7 +205,7 @@ form.addEventListener('submit', (e) => {
     let emailIsValid = emailVerify(e.target);
     const choice2 = document.querySelector('#email');
     const selectedEmail = choice2.parentElement;
-    e.preventDefault();
+    
     if (emailIsValid != true) {
         validationFail(selectedEmail);
         e.preventDefault();
@@ -229,7 +234,7 @@ form.addEventListener('submit', (e) => {
     let ccNumberIsValid = ccNumberVerify(e.target);
     const choice3 = document.querySelector('#cc-num');
     const selectedCcNum = choice3.parentElement;
-    e.preventDefault();
+   
     if (ccNumberIsValid != true) {
         validationFail(selectedCcNum);
         e.preventDefault();
@@ -241,7 +246,7 @@ form.addEventListener('submit', (e) => {
     let ccZipIsValid = zipVerify(e.target);
     const choice4 = document.querySelector('#zip');
     const selectedZip= choice4.parentElement;
-    e.preventDefault();
+   
     if (ccZipIsValid != true) {
         validationFail(selectedZip);
         e.preventDefault();
@@ -253,7 +258,7 @@ form.addEventListener('submit', (e) => {
     let ccvIsValid = cvvVerify(e.target);
     const choice5 = document.querySelector('#cvv');
     const selectedCvv= choice5.parentElement;
-    e.preventDefault();
+   
     if (ccvIsValid != true) {
         validationFail(selectedCvv);
         e.preventDefault();
