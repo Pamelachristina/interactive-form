@@ -8,6 +8,7 @@ const tshirtColor = document.getElementById('color');
 const tshirtColorOptions = document.getElementById('shirt-colors');
 const jsPuns = document.querySelectorAll('[data-theme="js puns"]');
 const heartJs = document.querySelectorAll('[data-theme="heart js"]');
+const input = document.querySelectorAll('input[type="checkbox"]');
 const registerActivities = document.getElementById('activities');
 const activitiesCost = document.getElementById('activities-cost');
 const payment = document.querySelector('#payment');
@@ -83,6 +84,22 @@ registerActivities.addEventListener('change', (e) => {
         }
         activitiesCost.textContent = `Total: $ ${totalCost}`;
 });
+
+
+for ( let i = 0; i < input.length; i++ ){
+    input[i].addEventListener('focus', () => {
+        input[i].parentNode.classList.add('focus');
+        
+    })
+
+    input[i].addEventListener('blur', () => {
+        input[i].parentNode.classList.remove('focus');
+        
+    })
+}
+
+
+
 
 
 /////////// Payment info section//////////////////////
