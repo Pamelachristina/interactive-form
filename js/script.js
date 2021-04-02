@@ -230,6 +230,7 @@ form.addEventListener('submit', (e) => {
       select.parentElement.lastElementChild.style.display = "inline";
       e.preventDefault();
     }
+ }
 
     let ccNumberIsValid = ccNumberVerify(e.target);
     const choice3 = document.querySelector('#cc-num');
@@ -272,5 +273,5 @@ form.addEventListener('submit', (e) => {
 
 
 
-}});
+});
 
