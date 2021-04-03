@@ -232,6 +232,8 @@ form.addEventListener('submit', (e) => {
     }
  }
 
+    if((ccOption.selected)) {
+
     let ccNumberIsValid = ccNumberVerify(e.target);
     const choice3 = document.querySelector('#cc-num');
     const selectedCcNum = choice3.parentElement;
@@ -267,11 +269,6 @@ form.addEventListener('submit', (e) => {
         validationPass(selectedCvv);
    
     }
+  }
 
-
-
-
-
-
-});
-
+})
