@@ -219,12 +219,12 @@ form.addEventListener('submit', (e) => {
   const select = document.querySelector("#activities-box");
   for (let i = 0; i < checkboxes.length; i++) {
     if (checkboxes[i].checked) {
-      totalActivitiesChecked += 1;}
-      if (totalActivitiesChecked !== 0){
+      totalCost += 1;}
+      if (totalCost !== 0){
       select.parentElement.classList.remove("not-valid");
       select.parentElement.classList.add("valid");
       select.parentElement.lastElementChild.style.display = "none";
-    } else if (totalActivitiesChecked == 0) {
+    } else if (totalCost == 0) {
       select.parentElement.classList.add("not-valid");
       select.parentElement.classList.remove("valid");
       select.parentElement.lastElementChild.style.display = "inline";
