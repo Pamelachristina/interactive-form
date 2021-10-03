@@ -1,7 +1,7 @@
 # interactive-form
-In this project, we used JavaScript to enhance an interactive registration form for a fictional Full Stack conference.
+In this project, I used JavaScript to enhance an interactive registration form for a fictional Full Stack conference.
 
-Using the supplied HTML and CSS files, we added our own JavaScript to make the form more user-friendly by:
+I used JavaScript to make the form more user-friendly by:
 
 * Adding customized and conditional behavior and interactivity
 
